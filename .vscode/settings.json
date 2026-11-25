@@ -1,0 +1,39 @@
+{
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms100m -Xlog:disable",
+
+    
+    "files.exclude": {
+        "**/*.class": true
+    },
+    "search.exclude": {
+        "**/*.class": true
+    },
+
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "on"
+    },
+    "java.completion.importOrder": [
+        "java",
+        "javax",
+        "com",
+        "org"
+    ],
+    "java.autobuild.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+
+    "java.completion.guessMethodArguments": true,
+    "java.completion.filteredTypes": [
+        "java.awt.*",
+        "com.sun.*"
+    ],
+
+    /* Trigger code generation templates (like 'sysout' or 'main') instantly */
+    "editor.snippetSuggestions": "top",
+    "java.debug.settings.onBuildFailureProceed": true
+
+}
