@@ -1,13 +1,34 @@
 package general_java.singlyLinkedList;
 
-import java.util.concurrent.BlockingDeque;
-
-public class main {
+public class mainn {
 
     public static void main(String[] args) {
 
         sll singly=new sll();
         sll luckeyNumber=new sll();
+
+        sll ll1=new sll();
+
+
+        ll1.insertAtStart(100);
+        ll1.insertAtStart(90);
+        ll1.insertAtStart(80);
+        ll1.insertAtStart(70);
+        ll1.insertAtStart(60);
+        ll1.insertAtStart(50);
+        ll1.printAllNodes();
+        System.out.println();
+
+        sll ll2=new sll();
+        ll2.insertAtStart(67);
+        ll2.insertAtStart(57);
+        ll2.insertAtStart(45);
+        ll2.insertAtStart(35);
+        ll2.printAllNodes();
+        System.out.println();
+
+        sll mergeLists=sll.mergerLists(ll1,ll2);
+        mergeLists.printAllNodes();
 
         /*Node head=null; //remove this
 
@@ -15,7 +36,6 @@ public class main {
 
         singly.insertAtStart(100);
         singly.printAllNodes();
-
 
         singly.insertAtStart(200);
         singly.printAllNodes();
@@ -37,7 +57,7 @@ public class main {
 
 
         //luckeyNumber.deleteAtPosition(1);
-        luckeyNumber.insertAtStart(201);
+        //luckeyNumber.insertAtStart(201);
 
 
         //luckeyNumber.insertAtStart(202);
@@ -60,13 +80,13 @@ public class main {
 
         //luckeyNumber.deleteAtEnd();
         //luckeyNumber.createLoop();
-        luckeyNumber.printAllNodes();
+        //luckeyNumber.printAllNodes();
         //luckeyNumber.deleteAtPosition(1);
         //luckeyNumber.printAllNodes();
 
-        System.out.println();
+        /*System.out.println();
         boolean resul=luckeyNumber.checkLoopIsPresent();
-        System.out.println("is loop present: "+resul);
+        System.out.println("is loop present: "+resul);*/
 
         /*luckeyNumber.createLoop();
         boolean loop=luckeyNumber.checkLoopIsPresent();
@@ -74,7 +94,7 @@ public class main {
         System.out.println("is loop is present: "+loop);*/
         //luckeyNumber.printAllNodes();
 
-        luckeyNumber.printAllNodes();
+        //luckeyNumber.printAllNodes();
 
         /*System.out.println();
         System.out.println();

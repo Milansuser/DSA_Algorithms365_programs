@@ -25,7 +25,7 @@ public class sll {
         }
         else{
             // int i = 0;
-            Node walker=this.head; // walker --> new variable naem
+            Node walker=this.head; // walker --> new variable name
             while(walker!=null)
             {
                 System.out.print(walker.data+" --> ");
@@ -49,7 +49,7 @@ public class sll {
         }
         this.count++;
         System.out.println();
-        System.out.println(" count "+count);
+        //System.out.println(" count "+count);
     }
 
     public Node insertAtEnd(int value)
@@ -298,26 +298,116 @@ public class sll {
         Node slow=this.head;
         Node fast=slow.next;
 
-        while(fast!=null && fast.next != null){
-            /*if(fast==null)
-            {
-                System.out.println(slow.data);
-                return;
 
-            }*/
+        while(fast!=null && fast.next != null){
+
             slow=slow.next;
             fast=fast.next.next;
         }
         System.out.println(slow.data);
 
 
-        //System.out.println(slow.data);
-        /*if(fast==null)
-        {
-            System.out.println(slow.data);
-        }*/
-
     }
+
+    Node getNodeAtStartAndRemoveIt()
+    {
+        if(this.head == null)
+        {
+            System.out.println("List is empty");
+            return null;
+        }
+
+        Node firstNode = this.head;
+
+        this.head = this.head.next;
+
+        firstNode.next = null;  // IMPORTANT: disconnect the extracted node
+
+        this.count--;
+
+        return firstNode;
+    }
+
+    public void insertAtEnd(Node newNode)
+    {
+        if(newNode == null)
+        {
+            return;
+        }
+
+        if(this.head == null)
+        {
+            this.head = newNode;
+            this.count++;
+            return;
+        }
+
+        Node currentNode = this.head;
+
+        while(currentNode.next != null)
+        {
+            currentNode = currentNode.next;
+        }
+
+        currentNode.next = newNode;
+        this.count++;
+    }
+
+    public static sll mergerLists(sll firstList, sll secondList)
+    {
+        sll mergedList = new sll();
+
+        if(firstList == null)
+        {
+            return secondList;
+        }
+
+        if(secondList == null)
+        {
+            return firstList;
+        }
+
+        while(firstList.head != null && secondList.head != null)
+        {
+            Node firstNode = null;
+
+            if(firstList.head.data < secondList.head.data)
+            {
+                firstNode = firstList.getNodeAtStartAndRemoveIt();
+            }
+            else
+            {
+                firstNode = secondList.getNodeAtStartAndRemoveIt();
+            }
+
+            mergedList.insertAtEnd(firstNode);
+        }
+
+        sll unfinishedList = null;
+
+        if(firstList.head != null)
+        {
+            unfinishedList = firstList;
+        }
+        else if(secondList.head != null)
+        {
+            unfinishedList = secondList;
+        }
+
+        if(unfinishedList != null)
+        {
+            while(unfinishedList.head != null)
+            {
+                Node newNode = unfinishedList.getNodeAtStartAndRemoveIt();
+                mergedList.insertAtEnd(newNode);
+            }
+        }
+
+        System.out.println("Merged List: ");
+
+        return mergedList;
+    }
+
 }
 
 
